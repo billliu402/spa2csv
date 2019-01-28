@@ -1,4 +1,3 @@
-This program is forked from spa2txt(https://github.com/aitap/spa2txt). It reads Nicolet FTIR spectral files (*.spa extension) and produces
-text files with the first line corresponding to the header (wavenumber,absorbance), and the following lines according to format: wavenumber, comma, absorbance, newline.
+This program is forked from spa2txt(https://github.com/aitap/spa2txt). It reads Nicolet FTIR spectral files (*.spa extension) and produces text files with the first line corresponding to the header (wavenumber,absorbance), and the following lines according to format: wavenumber, comma, absorbance, newline.
 
 Usage: feed *.spa files as command line arguments. Files with names *.spa.csv will be created.
