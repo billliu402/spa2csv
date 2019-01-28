@@ -14,7 +14,7 @@ int main (int argc, char** argv) {
 		{
 			size_t textfile_len = strlen(*argv)/*without \0*/ + 5/*.txt\0*/;
 			char textfile[textfile_len]; // assuming that <=260-character string would fit on the stack
-			if (snprintf(textfile, textfile_len, "%s%s", *argv, ".txt") >= textfile_len)
+			if (snprintf(textfile, textfile_len, "%s%s", *argv, ".csv") >= textfile_len)
 				abort();
 			wfh = fopen(textfile, "w");
 			if (!wfh) {
@@ -33,12 +33,12 @@ int main (int argc, char** argv) {
 			return 2;
 		}
 
-		if (fprintf(wfh, "%s\n", comment) < 0) {
-			printf("%s.txt: error while writing\n", *argv);
+		if (fprintf(wfh, "%s\n", "wavenumber,absorbance") < 0) {
+			printf("%s.csv: error while writing\n", *argv);
 			return 3;
 		}
 		for (size_t i = 0; i < num_points; i++) {
-			if(fprintf(wfh, "%g\t%g\n", wavelengths[i], intensities[i]) < 0) {
+			if(fprintf(wfh, "%g,%g\n", wavelengths[i], intensities[i]) < 0) {
 				printf("%s: error while writing\n", *argv);
 				return 3;
 			}
